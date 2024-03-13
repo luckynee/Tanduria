@@ -6,14 +6,22 @@ public class PlotManager : MonoBehaviour
 {
     [Header("Refrences")]
     [SerializeField] private SpriteRenderer plant;
-    [SerializeField] private Sprite[] plantStages;
     [SerializeField] private GameObject plantBtn;
     [SerializeField] private GameObject harvestBtn;
+    [SerializeField] private GameObject galiBtn;
+    [SerializeField] private PlantSO selectedPlant;
+
+    private FarmManager farmManager;
 
     private bool isPlanted = false;
+    private bool isPlantable = false;
     private int plantStage = 0;
-    private float timeStages = 2f;
     private float timer;
+
+    private void Awake()
+    {
+        farmManager = transform.parent.GetComponent<FarmManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -28,23 +36,44 @@ public class PlotManager : MonoBehaviour
         if(isPlanted )
         {
             timer -= Time.deltaTime;
-            if(timer < 0 && plantStage<plantStages.Length - 1)
+            if(timer < 0 && plantStage< selectedPlant.plantStages.Length - 1)
             {
-                timer = timeStages;
+                timer = selectedPlant.timeBtwnStages;
                 plantStage++;
                 UpdatePlant();
             }
         }
 
-        if (!isPlanted)
+        if(isPlantable )
         {
-            plantBtn.SetActive(true);
-            harvestBtn.SetActive(false);
-        } else if(isPlanted && plantStage == plantStages.Length - 1)
+            galiBtn.SetActive(false);
+
+            if (farmManager.isPlanting)
+            {
+                plantBtn.SetActive(true);
+                harvestBtn.SetActive(false);
+            }
+            else if (isPlanted && plantStage == selectedPlant.plantStages.Length - 1)
+            {
+                harvestBtn.SetActive(true);
+            }
+            else
+            {
+                plantBtn.SetActive(false);
+            }
+        } else
         {
+            galiBtn.SetActive(true);
             plantBtn.SetActive(false);
-            harvestBtn.SetActive(true);
+            harvestBtn.SetActive(false);
         }
+
+
+    }
+
+    public void Gali()
+    {
+        isPlantable = true;
     }
 
     public void Harvest()
@@ -54,18 +83,24 @@ public class PlotManager : MonoBehaviour
         plant.gameObject.SetActive(false);
     }
 
-    public void Plant()
+    public void PlantBtn()
     {
+        Plant(farmManager.selectPlant.plant);
+    }
+
+    private void Plant(PlantSO newPlant)
+    {
+        selectedPlant = newPlant;
         Debug.Log("Plant");
         isPlanted = true;
         plantStage = 0;
         UpdatePlant();
-        timer = timeStages;
+        timer = selectedPlant.timeBtwnStages;
         plant.gameObject.SetActive(true);
     }
 
     private void UpdatePlant()
     {
-        plant.sprite = plantStages[plantStage];
+        plant.sprite = selectedPlant.plantStages[plantStage];
     }
 }

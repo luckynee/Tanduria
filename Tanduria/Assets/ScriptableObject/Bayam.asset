@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f7f8f616d74bc846be56786f4159903, type: 3}
+  m_Name: Bayam
+  m_EditorClassIdentifier: 
+  plantName: Bayam
+  plantStages:
+  - {fileID: 21300000, guid: 61e2d3580877e8b49ae27761adfe9742, type: 3}
+  - {fileID: 21300000, guid: 4fbf5885d9ead324c813bcef9872cfe1, type: 3}
+  - {fileID: 21300000, guid: ed1432a79286fed4aa63fc8305935586, type: 3}
+  timeBtwnStages: 2
