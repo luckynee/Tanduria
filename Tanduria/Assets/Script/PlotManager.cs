@@ -1,20 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PlotState
+{
+    CAN_PLANT,
+    PLANT_PLANTED,
+    CAN_HARVEST
+}
+
 public class PlotManager : MonoBehaviour
 {
+    public event Action OnPlotCanPlant;
+    public event Action OnPlotPlantPlanted;
+    public event Action OnPlotCanHarvest;
+
     [Header("Refrences")]
     [SerializeField] private SpriteRenderer plant;
-    [SerializeField] private GameObject plantBtn;
-    [SerializeField] private GameObject harvestBtn;
-    [SerializeField] private GameObject galiBtn;
     [SerializeField] private PlantSO selectedPlant;
 
     private FarmManager farmManager;
 
-    private bool isPlanted = false;
-    private bool isPlantable = false;
+    private PlotState state;
+
+    public bool isLocked = true;
+
     private int plantStage = 0;
     private float timer;
 
@@ -22,67 +33,60 @@ public class PlotManager : MonoBehaviour
     {
         farmManager = transform.parent.GetComponent<FarmManager>();
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
-        if(isPlanted )
+        if (!isLocked)
         {
-            timer -= Time.deltaTime;
-            if(timer < 0 && plantStage< selectedPlant.plantStages.Length - 1)
+            if (state == PlotState.PLANT_PLANTED)
             {
-                timer = selectedPlant.timeBtwnStages;
-                plantStage++;
-                UpdatePlant();
+                timer -= Time.deltaTime;
+                if (timer < 0 && plantStage < selectedPlant.plantStages.Length - 1)
+                {
+                    timer = selectedPlant.timeBtwnStages;
+                    plantStage++;
+                    UpdatePlant();
+                }
             }
-        }
-
-        if(isPlantable )
-        {
-            galiBtn.SetActive(false);
-
-            if (farmManager.isPlanting && farmManager.selectPlant.plant.buyPrice <= farmManager.gold && !isPlanted)
-            {
-                plantBtn.SetActive(true);
-                harvestBtn.SetActive(false);
-            }
-            else if (!farmManager.isPlanting && plantStage == selectedPlant.plantStages.Length - 1)
-            {
-                harvestBtn.SetActive(true);
-            }
-            else
-            {
-                plantBtn.SetActive(false);
-
-            }
-        } else
-        {
-            galiBtn.SetActive(true);
-            plantBtn.SetActive(false);
-            harvestBtn.SetActive(false);
+            PlotStateManager();
         }
 
 
+    }
+
+    private void PlotStateManager()
+    {
+        switch (state)
+        {
+            case PlotState.CAN_PLANT:
+                OnPlotCanPlant?.Invoke();
+                break;
+            case PlotState.PLANT_PLANTED:
+                OnPlotPlantPlanted?.Invoke();
+
+                if(plantStage == selectedPlant.plantStages.Length - 1)
+                {
+                    state = PlotState.CAN_HARVEST;
+                }
+                break;
+            case PlotState.CAN_HARVEST:
+                OnPlotCanHarvest?.Invoke();
+                break;
+        }
     }
 
     public void Gali()
     {
-        isPlantable = true;
+        isLocked = false;
+        state = PlotState.CAN_PLANT;
     }
 
     public void Harvest()
     {
         Debug.Log("Harvest");
-        isPlanted = false;
         plant.gameObject.SetActive(false);
         farmManager.Transcation(selectedPlant.sellPrice);
+
+        state = PlotState.CAN_PLANT;
     }
 
     public void PlantBtn()
@@ -94,9 +98,10 @@ public class PlotManager : MonoBehaviour
     {
         selectedPlant = newPlant;
         Debug.Log("Plant");
-        isPlanted = true;
 
         farmManager.Transcation(-selectedPlant.buyPrice);
+
+        state = PlotState.PLANT_PLANTED;
 
         plantStage = 0;
         UpdatePlant();

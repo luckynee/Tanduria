@@ -6,21 +6,43 @@ using UnityEngine.UI;
 
 public class FarmManager : MonoBehaviour
 {
+
     public StorePlantItem selectPlant;
     public bool isPlanting = false;
     public int gold = 100;
     public TextMeshProUGUI goldText;
 
-    // Start is called before the first frame update
+    private List<PlotManager> plotManagers = new List<PlotManager>();
+
+    private void Awake()
+    {
+        PlotManager[] foundPlotManagers = GetComponentsInChildren<PlotManager>();
+
+        // Menambahkan setiap PlotManager yang ditemukan ke dalam list
+        foreach (PlotManager plotManager in foundPlotManagers)
+        {
+            plotManagers.Add(plotManager);
+        }
+
+        Debug.Log("jumlah"+plotManagers.Count);
+    }
+
     void Start()
     {
         goldText.text = gold.ToString();
     }
 
-    // Update is called once per frame
     void Update()
     {
-
+        // mencari plot yang tidak terkunci
+        int unlockedPlotManagerCount = 0;
+        foreach (PlotManager plotManager in plotManagers)
+        {
+            if (!plotManager.isLocked)
+            {
+                unlockedPlotManagerCount++;
+            }
+        }
     }
 
     public void SelectPlant(StorePlantItem newPlant)
@@ -47,4 +69,5 @@ public class FarmManager : MonoBehaviour
         gold += value;
         goldText.text = "$"+gold;
     }
+
 }
