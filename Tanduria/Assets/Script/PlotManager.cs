@@ -48,18 +48,19 @@ public class PlotManager : MonoBehaviour
         {
             galiBtn.SetActive(false);
 
-            if (farmManager.isPlanting)
+            if (farmManager.isPlanting && farmManager.selectPlant.plant.buyPrice <= farmManager.gold && !isPlanted)
             {
                 plantBtn.SetActive(true);
                 harvestBtn.SetActive(false);
             }
-            else if (isPlanted && plantStage == selectedPlant.plantStages.Length - 1)
+            else if (!farmManager.isPlanting && plantStage == selectedPlant.plantStages.Length - 1)
             {
                 harvestBtn.SetActive(true);
             }
             else
             {
                 plantBtn.SetActive(false);
+
             }
         } else
         {
@@ -81,6 +82,7 @@ public class PlotManager : MonoBehaviour
         Debug.Log("Harvest");
         isPlanted = false;
         plant.gameObject.SetActive(false);
+        farmManager.Transcation(selectedPlant.sellPrice);
     }
 
     public void PlantBtn()
@@ -93,6 +95,9 @@ public class PlotManager : MonoBehaviour
         selectedPlant = newPlant;
         Debug.Log("Plant");
         isPlanted = true;
+
+        farmManager.Transcation(-selectedPlant.buyPrice);
+
         plantStage = 0;
         UpdatePlant();
         timer = selectedPlant.timeBtwnStages;

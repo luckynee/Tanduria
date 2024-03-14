@@ -19,3 +19,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 00ef9222e2fb29a4891283cf9b463c51, type: 3}
   - {fileID: 21300000, guid: e988e9e367063ea4d964335a71c4c0da, type: 3}
   timeBtwnStages: 3
+  buyPrice: 15
+  sellPrice: 25
+  icon: {fileID: 21300000, guid: 2059bc4797cff844aa0b237b042f7b22, type: 3}

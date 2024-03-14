@@ -32,7 +32,7 @@ public class StorePlantItem : MonoBehaviour
     void InitializeUI()
     {
         nameTxt.text = plant.plantName;
-        priceTxt.text = "" + plant.price;
+        priceTxt.text = "" + plant.buyPrice;
         icon.sprite = plant.icon;
     }
 }
