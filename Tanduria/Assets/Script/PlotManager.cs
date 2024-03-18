@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum PlotState
@@ -16,7 +14,7 @@ public class PlotManager : MonoBehaviour
     public event Action OnPlotPlantPlanted;
     public event Action OnPlotCanHarvest;
 
-    [Header("Refrences")]
+    [Header("References")]
     [SerializeField] private SpriteRenderer plant;
     [SerializeField] private PlantSO selectedPlant;
 
@@ -33,6 +31,7 @@ public class PlotManager : MonoBehaviour
     {
         farmManager = transform.parent.GetComponent<FarmManager>();
     }
+
     void Update()
     {
         if (!isLocked)
@@ -49,8 +48,6 @@ public class PlotManager : MonoBehaviour
             }
             PlotStateManager();
         }
-
-
     }
 
     private void PlotStateManager()
@@ -62,8 +59,7 @@ public class PlotManager : MonoBehaviour
                 break;
             case PlotState.PLANT_PLANTED:
                 OnPlotPlantPlanted?.Invoke();
-
-                if(plantStage == selectedPlant.plantStages.Length - 1)
+                if (plantStage == selectedPlant.plantStages.Length - 1)
                 {
                     state = PlotState.CAN_HARVEST;
                 }
@@ -85,24 +81,22 @@ public class PlotManager : MonoBehaviour
         Debug.Log("Harvest");
         plant.gameObject.SetActive(false);
         farmManager.Transcation(selectedPlant.sellPrice);
-
         state = PlotState.CAN_PLANT;
     }
 
     public void PlantBtn()
     {
         Plant(farmManager.selectPlant.plant);
+        //for greenhouse
+        Plant(farmManager.selectBenih.selectedBenih.benihPlant);
     }
 
     private void Plant(PlantSO newPlant)
     {
         selectedPlant = newPlant;
         Debug.Log("Plant");
-
         farmManager.Transcation(-selectedPlant.buyPrice);
-
         state = PlotState.PLANT_PLANTED;
-
         plantStage = 0;
         UpdatePlant();
         timer = selectedPlant.timeBtwnStages;

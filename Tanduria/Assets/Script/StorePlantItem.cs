@@ -11,7 +11,7 @@ public class StorePlantItem : MonoBehaviour
     public TextMeshProUGUI nameTxt;
     public TextMeshProUGUI priceTxt;
     public Image icon;
-
+    
     FarmManager farmManager;
 
     private void Awake()

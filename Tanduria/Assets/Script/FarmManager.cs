@@ -8,6 +8,7 @@ public class FarmManager : MonoBehaviour
 {
 
     public StorePlantItem selectPlant;
+    public BenihManager selectBenih;
     public bool isPlanting = false;
     public int gold = 100;
     public TextMeshProUGUI goldText;
@@ -32,16 +33,18 @@ public class FarmManager : MonoBehaviour
         goldText.text = gold.ToString();
     }
 
-    void Update()
+    public void SelectBenih(BenihManager newBenih)
     {
-        // mencari plot yang tidak terkunci
-        int unlockedPlotManagerCount = 0;
-        foreach (PlotManager plotManager in plotManagers)
+        if (selectBenih == newBenih)
         {
-            if (!plotManager.isLocked)
-            {
-                unlockedPlotManagerCount++;
-            }
+            selectBenih = null;
+            isPlanting = false;
+        }
+        else
+        {
+
+            selectBenih = newBenih;
+            isPlanting = true;
         }
     }
 
@@ -56,7 +59,7 @@ public class FarmManager : MonoBehaviour
         }
         else
         {
-
+                
             selectPlant = newPlant;
             Debug.Log("Selected" + selectPlant.plant.plantName);
 
