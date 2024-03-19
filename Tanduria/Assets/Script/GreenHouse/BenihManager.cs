@@ -10,6 +10,7 @@ public class BenihManager : MonoBehaviour
     [SerializeField] private Image iconBefore;
     [SerializeField] private Image iconAfter;
 
+
     public BenihSO selectedBenih;
 
     private float timer = 5;

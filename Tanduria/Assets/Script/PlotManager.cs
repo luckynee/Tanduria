@@ -86,7 +86,7 @@ public class PlotManager : MonoBehaviour
 
     public void PlantBtn()
     {
-        Plant(farmManager.selectPlant.plant);
+     //   Plant(farmManager.selectPlant.plant);
         //for greenhouse
         Plant(farmManager.selectBenih.selectedBenih.benihPlant);
     }
