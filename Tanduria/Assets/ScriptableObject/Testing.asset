@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b0185047a096ba469f3808cf1ba5edb, type: 3}
-  m_Name: BenihJagung
+  m_Script: {fileID: 11500000, guid: 4979f796621c0e344b4b1d0caf8673df, type: 3}
+  m_Name: Testing
   m_EditorClassIdentifier: 
-  benihName: Benih Jagung
-  pemuaianTime: 1
+  itemName: Test
+  timeSemai: 5
   iconBefore: {fileID: 21300000, guid: f396c18b3c5ed2e46972f308685cf9c3, type: 3}
   iconAfter: {fileID: 21300000, guid: 2059bc4797cff844aa0b237b042f7b22, type: 3}
-  benihPlant: {fileID: 11400000, guid: 0956b4a2131d5404ba6e2946d996825b, type: 2}

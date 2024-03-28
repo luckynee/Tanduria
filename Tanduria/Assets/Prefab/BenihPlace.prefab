@@ -298,8 +298,6 @@ MonoBehaviour:
   farmManager: {fileID: 0}
   iconBefore: {fileID: 6979599839048229018}
   iconAfter: {fileID: 3249270363946855614}
-  jumlahBeforeTxt: {fileID: 7886306203921273305}
-  jumlahAfterTxt: {fileID: 3340058953999481578}
   selectedBenih: {fileID: 0}
 --- !u!1 &3834223161015836534
 GameObject:
@@ -568,7 +566,7 @@ GameObject:
   - component: {fileID: 3165531436022205658}
   - component: {fileID: 7611173801359171382}
   - component: {fileID: 8872469142621723983}
-  - component: {fileID: 3301013217483741416}
+  - component: {fileID: 7472271899660036715}
   m_Layer: 5
   m_Name: Beli
   m_TagString: Untagged
@@ -635,7 +633,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3301013217483741416
+--- !u!114 &7472271899660036715
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -681,7 +679,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7668759874168345851}
         m_TargetAssemblyTypeName: BenihManager, Assembly-CSharp
-        m_MethodName: SelectBenihToPlant
+        m_MethodName: TransferBenih
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

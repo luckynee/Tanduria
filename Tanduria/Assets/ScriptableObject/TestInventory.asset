@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 324bc08089a3ab243aeb59e971f088bd, type: 3}
+  m_Name: TestInventory
+  m_EditorClassIdentifier: 
+  maxItems: 6
+  maxItemsPerSlot: 10
+  itemList:
+  - itemType: {fileID: 11400000, guid: 3fa38c0763ba90e438071e05c5671b79, type: 2}
+    timeSemai: 2
+    iconBefore: {fileID: 21300000, guid: f396c18b3c5ed2e46972f308685cf9c3, type: 3}
+    iconAfter: {fileID: 21300000, guid: c877ff41dda491d44bf586dff2709e6d, type: 3}
+    quantity: 10
+  - itemType: {fileID: 11400000, guid: 3fa38c0763ba90e438071e05c5671b79, type: 2}
+    timeSemai: 2
+    iconBefore: {fileID: 21300000, guid: f396c18b3c5ed2e46972f308685cf9c3, type: 3}
+    iconAfter: {fileID: 21300000, guid: c877ff41dda491d44bf586dff2709e6d, type: 3}
+    quantity: 10
+  - itemType: {fileID: 11400000, guid: 3fa38c0763ba90e438071e05c5671b79, type: 2}
+    timeSemai: 2
+    iconBefore: {fileID: 21300000, guid: f396c18b3c5ed2e46972f308685cf9c3, type: 3}
+    iconAfter: {fileID: 21300000, guid: c877ff41dda491d44bf586dff2709e6d, type: 3}
+    quantity: 10
