@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Test
   timeSemai: 5
-  iconBefore: {fileID: 21300000, guid: f396c18b3c5ed2e46972f308685cf9c3, type: 3}
-  iconAfter: {fileID: 21300000, guid: 2059bc4797cff844aa0b237b042f7b22, type: 3}
+  iconBefore: {fileID: 21300000, guid: c877ff41dda491d44bf586dff2709e6d, type: 3}
+  plant: {fileID: 11400000, guid: 0956b4a2131d5404ba6e2946d996825b, type: 2}

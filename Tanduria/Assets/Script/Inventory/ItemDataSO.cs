@@ -9,7 +9,7 @@ public class ItemDataSO : ScriptableObject
     public string itemName;
     public float timeSemai;
     public Sprite iconBefore;
-    public Sprite iconAfter;
+    public PlantSO plant;
 }
 
 [System.Serializable]
@@ -18,7 +18,7 @@ public class ItemInstance
     public ItemDataSO itemType;
     public float timeSemai;
     public Sprite iconBefore;
-    public Sprite iconAfter;
+    public PlantSO plant;
     public int quantity;
 
     public ItemInstance(ItemDataSO itemDataSO)
@@ -26,7 +26,7 @@ public class ItemInstance
         itemType = itemDataSO;
         timeSemai = itemDataSO.timeSemai;
         iconBefore = itemDataSO.iconBefore;
-        iconAfter = itemDataSO.iconAfter;
+        plant = itemDataSO.plant;
         quantity = 1;
     }
 }

@@ -15,18 +15,13 @@ MonoBehaviour:
   maxItems: 6
   maxItemsPerSlot: 10
   itemList:
-  - itemType: {fileID: 11400000, guid: 3fa38c0763ba90e438071e05c5671b79, type: 2}
-    timeSemai: 2
-    iconBefore: {fileID: 21300000, guid: f396c18b3c5ed2e46972f308685cf9c3, type: 3}
-    iconAfter: {fileID: 21300000, guid: c877ff41dda491d44bf586dff2709e6d, type: 3}
+  - itemType: {fileID: 11400000, guid: b81a803a32509014484d47b7c7f1e261, type: 2}
+    timeSemai: 5
+    iconBefore: {fileID: 0}
+    plant: {fileID: 11400000, guid: 0956b4a2131d5404ba6e2946d996825b, type: 2}
     quantity: 10
-  - itemType: {fileID: 11400000, guid: 3fa38c0763ba90e438071e05c5671b79, type: 2}
-    timeSemai: 2
-    iconBefore: {fileID: 21300000, guid: f396c18b3c5ed2e46972f308685cf9c3, type: 3}
-    iconAfter: {fileID: 21300000, guid: c877ff41dda491d44bf586dff2709e6d, type: 3}
-    quantity: 10
-  - itemType: {fileID: 11400000, guid: 3fa38c0763ba90e438071e05c5671b79, type: 2}
-    timeSemai: 2
-    iconBefore: {fileID: 21300000, guid: f396c18b3c5ed2e46972f308685cf9c3, type: 3}
-    iconAfter: {fileID: 21300000, guid: c877ff41dda491d44bf586dff2709e6d, type: 3}
-    quantity: 10
+  - itemType: {fileID: 11400000, guid: b81a803a32509014484d47b7c7f1e261, type: 2}
+    timeSemai: 5
+    iconBefore: {fileID: 21300000, guid: c877ff41dda491d44bf586dff2709e6d, type: 3}
+    plant: {fileID: 11400000, guid: 0956b4a2131d5404ba6e2946d996825b, type: 2}
+    quantity: 5

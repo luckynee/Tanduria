@@ -8,28 +8,23 @@ public class BenihManager : MonoBehaviour
     [Header("Refrences")]
     [SerializeField] private FarmManager farmManager;
     [SerializeField] private Image iconBefore;
-    [SerializeField] private Image iconAfter;
-    [SerializeField] private UI_BenihDoneInventory uiBenihInventory;
+    [SerializeField] private Button plantBtn;
+    [SerializeField] private Button simpanBtn;
 
-    private BenihDoneInventory benihInventory;
+    private InventorySO benihInventory;
 
 
-    public BenihSO selectedBenih;
+    public ItemInstance selectedBenih;
 
     private float timer = 5;
     private bool isFilled = false;
 
-    private void Awake()
-    {
-        benihInventory = new BenihDoneInventory();
-        uiBenihInventory.SetBenihDoneInventory(benihInventory);
-    }
 
     private void Start()
     {
         iconBefore.gameObject.SetActive(false);
-        iconAfter.gameObject.SetActive(false);
-
+        plantBtn.gameObject.SetActive(false);
+        simpanBtn.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -37,9 +32,12 @@ public class BenihManager : MonoBehaviour
         if(selectedBenih == null)
         {
             isFilled = false;
+            Debug.Log("Kosong");
         } else
         {
             isFilled = true;
+            Debug.Log("Berisi");
+
         }
 
         if (isFilled)
@@ -49,14 +47,13 @@ public class BenihManager : MonoBehaviour
             timer -= Time.deltaTime;
             if(timer < 0)
             {
-                iconAfter.sprite = selectedBenih.iconAfter;
-                iconAfter.gameObject.SetActive(true);
-               
+                plantBtn.gameObject.SetActive(true);
+                simpanBtn.gameObject.SetActive(true);
             }
         }
     }
 
-    public void TransferBenih()
+    public void SimpanBenih()
     {
         benihInventory.AddItem(selectedBenih);
     }

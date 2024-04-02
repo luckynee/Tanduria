@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4979f796621c0e344b4b1d0caf8673df, type: 3}
   m_Name: Testing2
   m_EditorClassIdentifier: 
-  itemName: 
-  timeSemai: 0
-  iconBefore: {fileID: 0}
-  iconAfter: {fileID: 0}
+  itemName: bayam
+  timeSemai: 2
+  iconBefore: {fileID: 21300000, guid: 2059bc4797cff844aa0b237b042f7b22, type: 3}
+  plant: {fileID: 11400000, guid: d80a854a518c68c40b1e9a0a84e5dfe4, type: 2}
