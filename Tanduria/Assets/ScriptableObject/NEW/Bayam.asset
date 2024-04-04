@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4979f796621c0e344b4b1d0caf8673df, type: 3}
-  m_Name: Testing
+  m_Script: {fileID: 11500000, guid: 50136dcc5f896084c8adf10a7aa8f23e, type: 3}
+  m_Name: Bayam
   m_EditorClassIdentifier: 
-  id: 2
-  itemName: Test
-  timeSemai: 5
-  iconBefore: {fileID: 21300000, guid: c877ff41dda491d44bf586dff2709e6d, type: 3}
-  plant: {fileID: 11400000, guid: 0956b4a2131d5404ba6e2946d996825b, type: 2}
+  itemType: 1
+  itemSprite: {fileID: 21300000, guid: c877ff41dda491d44bf586dff2709e6d, type: 3}
+  plant: {fileID: 11400000, guid: d80a854a518c68c40b1e9a0a84e5dfe4, type: 2}
+  semaiTime: 2
+  amount: 0

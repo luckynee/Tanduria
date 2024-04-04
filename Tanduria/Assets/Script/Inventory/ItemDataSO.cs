@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ItemDataSO : ScriptableObject
 {
+    public int id;
     public string itemName;
     public float timeSemai;
     public Sprite iconBefore;
@@ -15,6 +16,7 @@ public class ItemDataSO : ScriptableObject
 [System.Serializable]
 public class ItemInstance
 {
+    public int id;
     public ItemDataSO itemType;
     public float timeSemai;
     public Sprite iconBefore;
@@ -23,6 +25,7 @@ public class ItemInstance
 
     public ItemInstance(ItemDataSO itemDataSO)
     {
+        id = itemDataSO.id;
         itemType = itemDataSO;
         timeSemai = itemDataSO.timeSemai;
         iconBefore = itemDataSO.iconBefore;
