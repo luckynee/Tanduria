@@ -6,6 +6,7 @@ public class SemaiManager : MonoBehaviour
 {
     [SerializeField] private SemaiSlot[] semaiSlots;
 
+
     // Fungsi untuk memeriksa apakah ada slot kosong di SemaiManager
     public bool HasEmptySlot()
     {

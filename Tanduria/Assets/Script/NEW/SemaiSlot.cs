@@ -8,6 +8,8 @@ public class SemaiSlot : MonoBehaviour
 {
     public ItemGreenHouseSO item;
 
+    [SerializeField] private InventoryBenihDoneSO inventoryBenihDone;
+
     [SerializeField] private Image image;
     [SerializeField] private TextMeshProUGUI quantityText;
 
@@ -21,7 +23,7 @@ public class SemaiSlot : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer < 0)
             {
-                Debug.Log(quantity);
+              
             }
         }
 
@@ -47,5 +49,20 @@ public class SemaiSlot : MonoBehaviour
     public void Tanam()
     {
 
+    }
+
+    public void Simpan()
+    {
+        inventoryBenihDone.AddItem(item.plant, quantity);
+
+        ResetItem();
+    }
+
+    private void ResetItem()
+    {
+        quantity = 0;
+        item = null;
+        image.sprite = null;
+        timer = 0;
     }
 }
