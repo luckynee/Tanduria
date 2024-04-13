@@ -13,8 +13,15 @@ public class SemaiSlot : MonoBehaviour
     [SerializeField] private Image image;
     [SerializeField] private TextMeshProUGUI quantityText;
 
+    private FarmManager farmManager;
+
     private float timer;
     private int quantity;
+
+    private void Start()
+    {
+        farmManager = FindAnyObjectByType<FarmManager>();
+    }
 
     private void Update()
     {
@@ -48,7 +55,7 @@ public class SemaiSlot : MonoBehaviour
 
     public void Tanam()
     {
-
+        farmManager.SelectedPlant(this.item.plant);
     }
 
     public void Simpan()

@@ -57,9 +57,4 @@ public class BenihManager : MonoBehaviour
     {
         benihInventory.AddItem(selectedBenih);
     }
-
-    public void SelectBenihToPlant()
-    {
-        farmManager.SelectBenih(this);
-    }
 }

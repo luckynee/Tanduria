@@ -12,6 +12,7 @@ public class FarmManager : MonoBehaviour
     public bool isPlanting = false;
     public int gold = 100;
     public TextMeshProUGUI goldText;
+    public PlantSO selectedPlant;
 
     private List<PlotManager> plotManagers = new List<PlotManager>();
 
@@ -33,36 +34,16 @@ public class FarmManager : MonoBehaviour
         goldText.text = gold.ToString();
     }
 
-    public void SelectBenih(BenihManager newBenih)
+    public void SelectedPlant(PlantSO newPlant)
     {
-        if (selectBenih == newBenih)
+        if (selectedPlant == newPlant)
         {
-            selectBenih = null;
+            selectedPlant = null;
             isPlanting = false;
         }
         else
         {
-
-            selectBenih = newBenih;
-            isPlanting = true;
-        }
-    }
-
-    public void SelectPlant(StorePlantItem newPlant)
-    {
-        if (selectPlant == newPlant)
-        {
-            Debug.Log("Deselected" + selectPlant.plant.plantName);
-
-            selectPlant = null;
-            isPlanting = false;
-        }
-        else
-        {
-                
-            selectPlant = newPlant;
-            Debug.Log("Selected" + selectPlant.plant.plantName);
-
+            selectedPlant = newPlant;
             isPlanting = true;
         }
     }

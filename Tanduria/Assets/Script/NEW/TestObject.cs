@@ -12,7 +12,7 @@ public class TestObject : MonoBehaviour
     [SerializeField] private InventoryBenihDoneSO inventoryBenihDone;
     [SerializeField] private UI_InventoryBenihDone uI_InventoryBenihDone;
 
-    private void Awake()
+    private void Start()
     {
         uI_Inventory.SetInventory(inventory);
         uI_InventoryBenihDone.SetInventory(inventoryBenihDone);

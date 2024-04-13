@@ -11,22 +11,11 @@ public class StorePlantItem : MonoBehaviour
     public TextMeshProUGUI nameTxt;
     public TextMeshProUGUI priceTxt;
     public Image icon;
-    
-    FarmManager farmManager;
-
-    private void Awake()
-    {
-        farmManager = FindObjectOfType<FarmManager>();
-    }
+   
 
     private void Start()
     {
         InitializeUI();
-    }
-
-    public void BuyPlant()
-    {
-        farmManager.SelectPlant(this);
     }
 
     void InitializeUI()
