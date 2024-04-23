@@ -40,34 +40,42 @@ public class InventoryBenihDoneSO : ScriptableObject
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
 
-    public int RemoveItem(PlantSO item)
+    public int RemoveItem(PlantSO item, int quantity)
     {
         int removedAmount = 0;
 
         if (item.IsStackable())
         {
-            PlantSO itemInInventory = null;
+           
             foreach (PlantSO inventoryItem in itemList)
             {
                 if (inventoryItem.itemType == item.itemType)
                 {
                     // Update jumlah item di inventaris
-                    removedAmount = Mathf.Min(item.amount, inventoryItem.amount);
+                    removedAmount = Mathf.Min(quantity, inventoryItem.amount);
                     inventoryItem.amount -= removedAmount;
-                    itemInInventory = inventoryItem;
+                    if (inventoryItem.amount <= 0)
+                    {
+                        itemList.Remove(inventoryItem);
+                    }
+                    break;
                 }
-            }
-            // Hapus item dari inventaris jika jumlah item kurang dari atau sama dengan 0
-            if (itemInInventory != null && itemInInventory.amount <= 0)
-            {
-                itemList.Remove(itemInInventory);
             }
         }
         else
         {
             // Hapus item dari inventaris jika tidak stackable
-            itemList.Remove(item);
-            removedAmount = 1; // Jika tidak stackable, jumlah yang dihapus adalah 1
+            for (int i = 0; i < quantity; i++)
+            {
+                if (itemList.Remove(item))
+                {
+                    removedAmount++;
+                }
+                else
+                {
+                    break; // Berhenti jika tidak ada lagi item yang dihapus
+                }
+            }
         }
 
         OnItemListChanged?.Invoke(this, EventArgs.Empty);

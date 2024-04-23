@@ -10,11 +10,13 @@ public class UI_InventoryBenihDone : MonoBehaviour
     private InventoryBenihDoneSO inventory;
     private Transform itemSlotContainer;
     private Transform itemSlotTemplate;
+    private FarmManager farmManager;
 
     private void Awake()
     {
         itemSlotContainer = transform.Find("UI_ItemDoneSlotContainer");
         itemSlotTemplate = itemSlotContainer.Find("UI_ItemSlotTemplate");
+        farmManager = FindAnyObjectByType<FarmManager>();
     }
 
     public void SetInventory(InventoryBenihDoneSO inventory)
@@ -49,6 +51,8 @@ public class UI_InventoryBenihDone : MonoBehaviour
             itemSlotRectTransform.GetComponent<Button_UI>().ClickFunc = () =>
             {
                 //isi ketika di klik
+                farmManager.SelectedPlant(item);
+
             };
 
 

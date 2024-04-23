@@ -13,12 +13,16 @@ public class PlotManager : MonoBehaviour
     public event Action OnPlotCanPlant;
     public event Action OnPlotPlantPlanted;
     public event Action OnPlotCanHarvest;
+    public event Action OnPlotPlanted;
 
     [Header("References")]
     [SerializeField] private SpriteRenderer plant;
     [SerializeField] private PlantSO selectedPlant;
 
     private FarmManager farmManager;
+
+    private SemaiManager semaiManager;
+
 
     private PlotState state;
 
@@ -30,6 +34,8 @@ public class PlotManager : MonoBehaviour
     private void Awake()
     {
         farmManager = transform.parent.GetComponent<FarmManager>();
+        semaiManager = FindAnyObjectByType<SemaiManager>();
+
     }
 
     void Update()
@@ -97,8 +103,13 @@ public class PlotManager : MonoBehaviour
         Debug.Log("Plant");
         farmManager.Transcation(-selectedPlant.buyPrice);
         state = PlotState.PLANT_PLANTED;
+
+        farmManager.inventoryBenihDoneSO.RemoveItem(farmManager.selectedPlant, 1);
+
         plantStage = 0;
+
         UpdatePlant();
+
         timer = selectedPlant.timeBtwnStages;
         plant.gameObject.SetActive(true);
     }

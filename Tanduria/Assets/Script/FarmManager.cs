@@ -13,8 +13,10 @@ public class FarmManager : MonoBehaviour
     public int gold = 100;
     public TextMeshProUGUI goldText;
     public PlantSO selectedPlant;
+    public InventoryBenihDoneSO inventoryBenihDoneSO;
 
     private List<PlotManager> plotManagers = new List<PlotManager>();
+
 
     private void Awake()
     {

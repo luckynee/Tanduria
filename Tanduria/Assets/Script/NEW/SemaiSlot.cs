@@ -16,7 +16,7 @@ public class SemaiSlot : MonoBehaviour
     private FarmManager farmManager;
 
     private float timer;
-    private int quantity;
+    public int quantity;
 
     private void Start()
     {
@@ -34,9 +34,11 @@ public class SemaiSlot : MonoBehaviour
             }
         }
 
+
         if (quantity < 1)
         {
             quantityText.gameObject.SetActive(false);
+            
         }
         else
         {
