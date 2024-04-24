@@ -2352,6 +2352,7 @@ MonoBehaviour:
   inventoryBenihDone: {fileID: 11400000, guid: 099fb0be8ce0f44409b84dae1d59f4fc, type: 2}
   image: {fileID: 1378221356261022997}
   quantityText: {fileID: 8567344780292410293}
+  simpanBtn: {fileID: 177105350648023438}
   quantity: 0
 --- !u!1 &5768930977227730642
 GameObject:
@@ -2676,6 +2677,7 @@ MonoBehaviour:
   inventoryBenihDone: {fileID: 11400000, guid: 099fb0be8ce0f44409b84dae1d59f4fc, type: 2}
   image: {fileID: 2565084156521813559}
   quantityText: {fileID: 1537878699938304951}
+  simpanBtn: {fileID: 4171103360283509645}
   quantity: 0
 --- !u!1 &6091653180007032336
 GameObject:
@@ -3236,6 +3238,7 @@ MonoBehaviour:
   inventoryBenihDone: {fileID: 11400000, guid: 099fb0be8ce0f44409b84dae1d59f4fc, type: 2}
   image: {fileID: 6598365227114834420}
   quantityText: {fileID: 1741992812965160492}
+  simpanBtn: {fileID: 1588108426902570742}
   quantity: 0
 --- !u!1 &7927986016106761994
 GameObject:

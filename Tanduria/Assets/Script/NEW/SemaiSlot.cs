@@ -13,6 +13,8 @@ public class SemaiSlot : MonoBehaviour
     [SerializeField] private Image image;
     [SerializeField] private TextMeshProUGUI quantityText;
 
+    [SerializeField] private GameObject simpanBtn;
+
     private FarmManager farmManager;
 
     private float timer;
@@ -21,6 +23,7 @@ public class SemaiSlot : MonoBehaviour
     private void Start()
     {
         farmManager = FindAnyObjectByType<FarmManager>();
+        simpanBtn.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -30,8 +33,13 @@ public class SemaiSlot : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer < 0)
             {
-              
+                simpanBtn.gameObject.SetActive(true);
+
             }
+        } else
+        {
+            simpanBtn.gameObject.SetActive(false);
+
         }
 
 

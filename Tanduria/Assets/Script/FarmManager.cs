@@ -28,12 +28,22 @@ public class FarmManager : MonoBehaviour
             plotManagers.Add(plotManager);
         }
 
+       
+
         Debug.Log("jumlah"+plotManagers.Count);
     }
 
     void Start()
     {
         goldText.text = gold.ToString();
+    }
+
+    private void Update()
+    {
+        if (selectedPlant != null && selectedPlant.amount == 0)
+        {
+            selectedPlant = null;
+        }
     }
 
     public void SelectedPlant(PlantSO newPlant)

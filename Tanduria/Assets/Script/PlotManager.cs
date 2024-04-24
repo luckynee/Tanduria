@@ -104,6 +104,7 @@ public class PlotManager : MonoBehaviour
         farmManager.Transcation(-selectedPlant.buyPrice);
         state = PlotState.PLANT_PLANTED;
 
+        
         farmManager.inventoryBenihDoneSO.RemoveItem(farmManager.selectedPlant, 1);
 
         plantStage = 0;
