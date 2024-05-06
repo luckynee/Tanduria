@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,11 +14,15 @@ public class SemaiSlot : MonoBehaviour
     [SerializeField] private Image image;
     [SerializeField] private TextMeshProUGUI quantityText;
 
+    [SerializeField] private Image UI_BarInside;
+
     [SerializeField] private GameObject simpanBtn;
 
     private FarmManager farmManager;
 
     private float timer;
+    private float barTimer;
+    private float barFillSpeed;
     public int quantity;
 
     private void Start()
@@ -36,6 +41,12 @@ public class SemaiSlot : MonoBehaviour
                 simpanBtn.gameObject.SetActive(true);
 
             }
+            else
+            {
+                barFillSpeed = 1f / barTimer;
+                UI_BarInside.fillAmount = 1 - (timer / barTimer);
+            }
+
         } else
         {
             simpanBtn.gameObject.SetActive(false);
@@ -58,8 +69,10 @@ public class SemaiSlot : MonoBehaviour
     {
         this.item = item;
         this.quantity = quantity;
+        image.gameObject.SetActive(true);
         image.sprite = item.itemSprite;
         quantityText.text = quantity.ToString();
+        barTimer = item.semaiTime;
         timer = item.semaiTime;
     }
 
@@ -79,7 +92,9 @@ public class SemaiSlot : MonoBehaviour
     {
         quantity = 0;
         item = null;
+        image.gameObject.SetActive(false);
         image.sprite = null;
+        barTimer = 0;
         timer = 0;
     }
 }

@@ -40,9 +40,9 @@ public class UI_Inventory : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        int x = 0;
+        int x = -1;
         int y = 0;
-        float itemSlotCellSize = 120f;
+        float itemSlotCellSize = 74f;
         foreach (ItemGreenHouseSO item in inventory.GetItemList())
         {
             RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
@@ -64,7 +64,7 @@ public class UI_Inventory : MonoBehaviour
 
 
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
-            Image image = itemSlotRectTransform.Find("Image").GetComponent<Image>();
+            Image image = itemSlotRectTransform.Find("UI_itemSlotIcon").GetComponent<Image>();
             image.sprite = item.itemSprite;
             TextMeshProUGUI uiText = itemSlotRectTransform.Find("amountText").GetComponent<TextMeshProUGUI>();
             if(item.amount > 1)

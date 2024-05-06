@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UI_GreenHouse : MonoBehaviour
 {
+    [SerializeField] private Transform UI_GreenHousePopUp;
     [SerializeField] private Transform UI_InventoryBenih;
     [SerializeField] private Transform UI_InventoryBenihDone;
     [SerializeField] private Transform BenihShowBtn;
@@ -11,8 +12,20 @@ public class UI_GreenHouse : MonoBehaviour
 
     private void Start()
     {
+        UI_GreenHousePopUp.gameObject.SetActive(false);
         UI_InventoryBenihDone.gameObject.SetActive(false);
         BenihShowBtn.gameObject.SetActive(false);
+    }
+
+    public void HideGreenHouse()
+    {
+        UI_GreenHousePopUp.gameObject.SetActive(false);
+    }
+
+    public void ShowGreenHouse()
+    {
+        UI_GreenHousePopUp.gameObject.SetActive(true);
+
     }
 
     public void ShowBenihDone()

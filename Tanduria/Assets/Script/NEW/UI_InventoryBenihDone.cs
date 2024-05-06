@@ -42,7 +42,7 @@ public class UI_InventoryBenihDone : MonoBehaviour
 
         int x = 0;
         int y = 0;
-        float itemSlotCellSize = 120f;
+        float itemSlotCellSize = 74f;
         foreach (PlantSO item in inventory.GetItemList())
         {
             RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
@@ -57,7 +57,7 @@ public class UI_InventoryBenihDone : MonoBehaviour
 
 
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
-            Image image = itemSlotRectTransform.Find("Image").GetComponent<Image>();
+            Image image = itemSlotRectTransform.Find("UI_itemSlotIcon").GetComponent<Image>();
             image.sprite = item.icon;
             TextMeshProUGUI uiText = itemSlotRectTransform.Find("amountText").GetComponent<TextMeshProUGUI>();
             if (item.amount > 1)
